@@ -7,7 +7,9 @@ public class Main {
 	// write your code here
         //System.out.print("Hello Java World!!");
 
-        var qf = new QuickFindUF(10);
+        //var qf = new QuickFindUF(10);
+
+        System.out.println("This is a simple Java program");
 
     }
 }
