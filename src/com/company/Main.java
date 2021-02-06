@@ -3,7 +3,7 @@ package com.company;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
 	// write your code here
         //System.out.print("Hello Java World!!");
 

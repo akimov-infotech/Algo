@@ -34,6 +34,8 @@ build/
 ### VS Code ###
 .vscode/
 
+*.class
+
 .gradle
 ktlint
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
