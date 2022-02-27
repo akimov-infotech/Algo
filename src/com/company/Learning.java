@@ -1,7 +1,10 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Learning {
-    public static void main1(String[] args) {
+    private ArrayList list;
+    public static void main3(String[] args) {
 
         System.out.println("This works!");
     }
