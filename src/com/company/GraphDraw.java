@@ -14,8 +14,15 @@ public class GraphDraw {
         StdDraw.point(0.5, 0.5);*/
 
         //funcValues();
-      // randomArray();
-        sortedRandomArray();
+        // randomArray();
+//        sortedRandomArray();
+        //bouncingBall();
+
+        double f058 = -25.27d;
+        double f060 = 0.0;
+        double res = ((f058 * f060) / 100.0);
+        System.out.println(res);
+
     }
 
     private static void funcValues() {
@@ -66,6 +73,44 @@ public class GraphDraw {
             double rw = 0.5 / N;
             double rh = a[i] / 2.0;
             StdDraw.filledRectangle(x, y, rw, rh);
+        }
+    }
+
+    private static void bouncingBall() {
+        // set the scale of the coordinate system
+        StdDraw.setXscale(-1.0, 1.0);
+        StdDraw.setYscale(-1.0, 1.0);
+        StdDraw.enableDoubleBuffering();
+
+        // initial values
+        double rx = 0.480, ry = 0.860;     // position
+        double vx = 0.015, vy = 0.023;     // velocity
+        double radius = 0.05;              // radius
+
+        // main animation loop
+        while (true) {
+
+            // bounce off wall according to law of elastic collision
+            if (Math.abs(rx + vx) > 1.0 - radius) vx = -vx;
+            if (Math.abs(ry + vy) > 1.0 - radius) vy = -vy;
+
+            // update position
+            rx = rx + vx;
+            ry = ry + vy;
+
+            // clear the background
+            StdDraw.clear(StdDraw.LIGHT_GRAY);
+
+            // draw ball on the screen
+            StdDraw.setPenColor(StdDraw.BLACK);
+            StdDraw.filledCircle(rx, ry, radius);
+
+            // copy offscreen buffer to onscreen
+            StdDraw.show();
+
+            // pause for 20 ms
+            StdDraw.pause(20);
+
         }
     }
 }
