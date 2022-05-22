@@ -4,7 +4,6 @@ import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
 
 public class Exercises1 {
 
@@ -148,18 +147,24 @@ public class Exercises1 {
         System.out.println(res);
     }
 
-    public static void Ex1_1_10_PrintTwoDimArray() {
-        int colN = 5;
-        int rowN = 5;
-        var logicArray = new boolean[colN][rowN];
+    public static void Ex1_1_11_PrintTwoDimArray() {
+        int cols = 5;
+        int rows = 5;
+        var logicArray = new boolean[cols][rows];
 //        PrintArray(logicArray);
 
-        for (int i = 0; i < rowN; i++) {
-            for (int j = 0; j < colN; j++)
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++)
                 logicArray[i][j] = Math.random() >= .5;
         }
+        //convert booleans to strings
+        var strArray = new Character[cols][rows];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++)
+                strArray[i][j] = logicArray[i][j] ? '*' : ' ';
+        }
 
-        PrintArray(logicArray);
+        printArray(strArray);
 /*
         logicArray[0] = new boolean[]{false, true, true, true, true, true};
         logicArray[1] = new boolean[]{true, true, true, true, true, true};
@@ -169,27 +174,73 @@ public class Exercises1 {
         PrintArray(logicArray);*/
     }
 
-    public static void PrintArray(boolean[][] arr) {
-        int colN;
-        int rowN = arr.length;
+    public static <T> void printArray(T[][] arr) {
+        int cols;
+        int rows = arr.length;
         if (arr[0] == null) return;
-        colN = arr[0].length;
+        cols = arr[0].length;
+
+        var format = "%s\t";
+        var colDist = "%s\t";
+        if (arr instanceof Double[][]) {
+            format = "%.2f\t";
+            colDist = "%s\t\t";
+        }
+
         // Numbers of columns
         System.out.print("\t");
-        for (int j = 0; j < colN; j++) {
-            System.out.printf("%s\t", j);
+        for (int j = 0; j < cols; j++) {
+            System.out.printf(colDist, j);
         }
         System.out.println();
 
-        for (int i = 0; i < rowN; i++) {
+        for (int i = 0; i < rows; i++) {
             System.out.printf("%s\t", i); // Row number
-            for (int j = 0; j < colN; j++) {
-                System.out.printf("%s\t", arr[i][j] ? "*" : " ");
+            for (int j = 0; j < cols; j++) {
+                System.out.printf(format, arr[i][j]);
             }
             System.out.println();
         }
     }
 
+    public static void Ex1_1_13_TwoDimArrayTranspose() {
+        int cols = 2;
+        int rows = 5;
+        var twoDimArray = new Double[rows][cols];
+        initArray(twoDimArray);
+
+        printArray(twoDimArray);
+        int cols1 = rows;
+        int rows1 = cols;
+        var transposedArray = new Double[rows1][cols1];
+        transposeArray(twoDimArray, transposedArray);
+
+        printArray(transposedArray);
+    }
+
+    public static <T> void transposeArray(T[][] srcArr, T[][] resArr) {
+        int cols;
+        int rows = srcArr.length;
+        if (srcArr[0] == null) return;
+        cols = srcArr[0].length;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++)
+                resArr[j][i] = srcArr[i][j];
+        }
+    }
+
+    public static void initArray(Double[][] twoDimArray) {
+        int cols;
+        int rows = twoDimArray.length;
+        if (twoDimArray[0] == null) return;
+        cols = twoDimArray[0].length;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++)
+                twoDimArray[i][j] = Math.random();
+        }
+    }
 }
 
 

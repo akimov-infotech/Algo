@@ -33,6 +33,7 @@ public class EntryPoint {
         /* var fileName = args[0];
         BinarySearch.readFromFile(fileName);*/
 
-        Exercises1.Ex1_1_10_PrintTwoDimArray();
+       //Exercises1.Ex1_1_11_PrintTwoDimArray();
+        Exercises1.Ex1_1_13_TwoDimArrayTranspose();
     }
 }
