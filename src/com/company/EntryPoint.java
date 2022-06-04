@@ -34,6 +34,7 @@ public class EntryPoint {
         BinarySearch.readFromFile(fileName);*/
 
        //Exercises1.Ex1_1_11_PrintTwoDimArray();
-        Exercises1.Ex1_1_13_TwoDimArrayTranspose();
+//        Exercises1.Ex1_1_13_TwoDimArrayTranspose();
+        Exercises1.Ex1_1_14_Ln2();
     }
 }

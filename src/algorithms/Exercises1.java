@@ -241,6 +241,30 @@ public class Exercises1 {
                 twoDimArray[i][j] = Math.random();
         }
     }
+
+    public static void Ex1_1_14_Ln2() {
+        int N = 16;
+        System.out.println(NotLargerThanLog2ofN(N));
+
+        //test
+        int result = (int)(Math.log(N) / Math.log(2));
+        System.out.println(result);
+
+        var res = Math.log(.75) / Math.log(2);
+        System.out.println(res);
+    }
+
+    public static int NotLargerThanLog2ofN(int N) {
+        int res = 1;
+        int pow = -1;
+
+        do {
+            pow++;
+            res = 2 * res;
+        } while (res <= N);
+
+        return pow;
+    }
 }
 
 
